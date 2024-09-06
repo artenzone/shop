@@ -6,7 +6,10 @@ body {
     padding: 0;
     background-color: #f0f0f0;
     color: #333;
+<<<<<<< HEAD
     background-color: #283739;
+=======
+>>>>>>> 538da60a2843f8c3314ec2614962a6e5a377cfe0
 }
 
 header {
@@ -80,7 +83,11 @@ header h1 {
 }
 
 .details {
+<<<<<<< HEAD
     background-color: #e0e0e0;
+=======
+    background-color: #fff;
+>>>>>>> 538da60a2843f8c3314ec2614962a6e5a377cfe0
     border-radius: 10px;
     padding: 20px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
