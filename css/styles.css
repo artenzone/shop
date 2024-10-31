@@ -8,6 +8,11 @@ body {
     background-color: #283739;
 }
 
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
 header {
     background-color: #c0eb26;
     color: #0c0c0c;
@@ -16,9 +21,12 @@ header {
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-header h1 {
-    margin: 0;
-    font-size: 2rem;
+.header-logo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
 }
 
 .container {
@@ -49,29 +57,48 @@ header h1 {
     overflow: hidden;
 }
 
-.button:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-        120deg,
-        transparent,
-        rgba(255, 255, 255, 0.3),
-        transparent
-    );
-    transition: all 0.6s;
-}
-
-.button:hover:before {
-    left: 100%;
-}
-
 .button:hover {
     background-color: #3a7bc8;
     transform: scale(1.05);
+}
+button {
+    position: relative;
+    border: none;
+    border-radius: 10rem;
+    padding: .5rem 3.25rem;
+    background-color: #5175FF;
+    color: white;
+    font-size: 1.5rem;
+    font-family: 'Poppins', sans-serif;
+    line-height: 3.5rem;
+    cursor: pointer;
+    outline: none;
+    overflow: hidden;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #829CFF;
+}
+
+.ripple {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background-color: white;
+    pointer-events: none;
+    opacity: 0.5;
+    animation: ripple 0.5s linear;
+}
+
+@keyframes ripple {
+    to {
+        width: 15rem;
+        height: 15rem;
+        opacity: 0;
+    }
 }
 
 .button i {
@@ -116,6 +143,18 @@ header h1 {
     color: #4a90e2;
     position: absolute;
     left: 0;
+}
+
+/* Scroll-in animation */
+.scroll-fade {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.scroll-fade.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .image-gallery {
